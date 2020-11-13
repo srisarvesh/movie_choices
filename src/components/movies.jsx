@@ -14,7 +14,16 @@ class Movies extends Component{
     
     render()
     {
+        if(this.state.movies.length==0)
+        {
+            return(
+                <p>NOTHING TO DISPLAY</p>
+            )
+        }
+        
         return(
+            <React.Fragment>
+            <p>No of movies : {this.state.movies.length}</p>
             <table className="table">
                 <thead>
                     <th>Title</th>
@@ -38,6 +47,7 @@ class Movies extends Component{
                 </tbody>
                 
             </table>
+            </React.Fragment>
         )
     }
     
