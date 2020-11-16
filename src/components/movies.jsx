@@ -11,10 +11,17 @@ class Movies extends Component{
         this.setState({movies});
 
     };
+    handleLike=(movie)=>{
+        const movies=[...this.state.movies];
+        const index=movies.indexOf(movie);
+        movies[index]={...movies[index]} ;  
+        movies[index].liked=!movies[index].liked;
+        this.setState({movies});
+    };
     
     render()
     {
-        if(this.state.movies.length==0)
+        if(this.state.movies.length===0)
         {
             return(
                 <p>NOTHING TO DISPLAY</p>
@@ -31,7 +38,7 @@ class Movies extends Component{
                     <th>Stock</th>
                     <th>Rate</th>
                     <th></th>
-                    <th></th>
+                    <th></th>   
                 </thead>
                 <tbody>
                     {this.state.movies.map(movie=>(
@@ -41,7 +48,7 @@ class Movies extends Component{
                             <td>{movie.numberInStock}</td>
                             <td>{movie.dailyRentalRate}</td>
                             <td>
-                                <Like />
+                                <Like liked={movie.liked} onClick={()=>this.handleLike(movie)}/>
                             </td>
                             <td>
                                 <button onClick={()=>this.handledelete(movie)} className="btn btn-danger btn-sm">Delete</button>
@@ -54,6 +61,6 @@ class Movies extends Component{
             </React.Fragment>
         )
     }
-    
+      
 }
 export default Movies;
