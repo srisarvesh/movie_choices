@@ -6,7 +6,7 @@ export class Like extends Component{
         {
             classes+="-o";
         }
-        return <i className={classes} onClick={this.props.onClick} style={{cursor:'pointer'}}  aria-hidden="true"/>;
+        return <i className={classes} onClick={this.props.onPageChang} style={{cursor:'pointer'}}  aria-hidden="true"/>;
              
              
              

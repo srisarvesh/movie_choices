@@ -20,7 +20,7 @@ class Movies extends Component{
         movies[index].liked=!movies[index].liked;
         this.setState({movies});
     };
-    handlePageChange=page=>{
+    handlePageChange=(page)=>{
         console.log(page);
     }
     
