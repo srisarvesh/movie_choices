@@ -5,10 +5,12 @@ import Pagination from './common/pagination'
 import { pagination } from '../utils/paginate'
 import PropTypes from 'prop-types'
 import ListGroup from './common/listGroup'
+import {getGenres} from '../services/fakeGenreService'
 class Movies extends Component{
 
     state={
-        movies:getMovies(),
+        movies:[],
+        genres:[],
         pageSize:4,
         currentPage:1
     };
@@ -16,7 +18,10 @@ class Movies extends Component{
         const movies=this.state.movies.filter(m => m._id !== movie._id)
         this.setState({movies});
 
-    }; 
+    };
+    componentDidMount(){
+        this.setState({movies:getMovies(),genres:getGenres()});
+    } 
     handleLike=(movie)=>{
         const movies=[...this.state.movies];
         const index=movies.indexOf(movie);
