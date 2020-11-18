@@ -32,6 +32,9 @@ class Movies extends Component{
     handlePageChange=(page)=>{
         this.setState({currentPage:page}); 
     }
+    handleGenreSelect=genre=>{
+        console.log(genre);  
+    } 
     
     render()
     {
@@ -46,8 +49,14 @@ class Movies extends Component{
         return(
             <React.Fragment>
               <div className="row">
-                 <div className="col-2">
-                     <ListGroup />
+                 <div className="col-3">
+                     <ListGroup 
+                     
+                     items={this.state.genres} 
+                     onItemSelect={this.handleGenreSelect}
+                    
+
+                     />
                       
                  </div>
                  <div className="col">
