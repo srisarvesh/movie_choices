@@ -22,7 +22,7 @@ class Movies extends Component{
         this.setState({movies});
     };
     handlePageChange=(page)=>{
-        this.setState({currentPage:page});
+        this.setState({currentPage:page}); 
     }
     
     render()
