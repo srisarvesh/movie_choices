@@ -9,7 +9,7 @@ const Pagination = (props) => {
     const pages=_.range(1,pagesCount+1);
     if(pagesCount===1){ 
         return null;
-    }
+    }   
     
     return (
         <nav>
