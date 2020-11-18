@@ -4,6 +4,7 @@ import {Like} from './common/like'
 import Pagination from './common/pagination'
 import { pagination } from '../utils/paginate'
 import PropTypes from 'prop-types'
+import ListGroup from './common/listGroup'
 class Movies extends Component{
 
     state={
@@ -15,7 +16,7 @@ class Movies extends Component{
         const movies=this.state.movies.filter(m => m._id !== movie._id)
         this.setState({movies});
 
-    };
+    }; 
     handleLike=(movie)=>{
         const movies=[...this.state.movies];
         const index=movies.indexOf(movie);
@@ -39,9 +40,15 @@ class Movies extends Component{
         const movies=pagination(this.state.movies,this.state.currentPage,this.state.pageSize);
         return(
             <React.Fragment>
-            <p>No of movies : {this.state.movies.length}</p>
-            <table className="table">
-                <thead>
+              <div className="row">
+                 <div className="col-2">
+                     <ListGroup />
+                      
+                 </div>
+                 <div className="col">
+                   <p>No of movies : {this.state.movies.length}</p>
+                   <table className="table">
+                 <thead>
                     <th>Title</th>
                     <th>Genre</th>
                     <th>Stock</th>
@@ -73,6 +80,8 @@ class Movies extends Component{
             onPageChange={this.handlePageChange}
             currentPage={currentPage}
             />
+            </div>
+            </div>
             </React.Fragment>
         )
     }
