@@ -38,14 +38,17 @@ class Movies extends Component{
     
     render()
     {
-        const{pageSize,currentPage}=this.state;
+        const{pageSize,currentPage,selectedGenre,movies:allMovies}=this.state;
         if(this.state.movies.length===0)
         {
             return(
                 <p>NOTHING TO DISPLAY</p>
             )
+
         }
-        const movies=pagination(this.state.movies,this.state.currentPage,this.state.pageSize);
+        const filtered=selectedGenre?allMovies.filter(m=>m.genre._id===selectedGenre._id):allMovies;
+
+        const movies=pagination(filtered,currentPage,pageSize);
         return(
             <React.Fragment>
               <div className="row">
@@ -58,7 +61,7 @@ class Movies extends Component{
                       
                  </div>
                  <div className="col">
-                   <p>No of movies : {this.state.movies.length}</p>
+                   <p>No of movies : {filtered.length}</p>
                    <table className="table">
                  <thead>
                     <th>Title</th>
@@ -87,7 +90,7 @@ class Movies extends Component{
                 
             </table>
             <Pagination 
-            itemsCount={this.state.movies.length}
+            itemsCount={filtered.length}
             pageSize={pageSize}
             onPageChange={this.handlePageChange}
             currentPage={currentPage}
