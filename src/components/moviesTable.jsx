@@ -20,7 +20,8 @@ class MoviesTable extends Component
     return (
          <Table  columns={this.columns} data={movies} sortColumn={sortColumn} onSort={onSort}/>
      );
-                    }
+                   
+    }
 };
 
 export default MoviesTable;
