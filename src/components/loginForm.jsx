@@ -2,14 +2,22 @@ import ReactDOM from 'react-dom'
 import React, { Component } from 'react'; 
 import { Button } from 'bootstrap';
 
+
 class LoginForm extends Component {
+    state={
+        account:{username:"",password:""}
+    };
     username=React.createRef();
       handleSubmit=e=>{
             e.preventDefault();
-            console.log("Submmited")
-            const username=this.username.current.value;
-            console.log(username);
+           
         };
+        handleChange=e=>{
+            const account={...this.state.account};
+            account.username=e.currentTarget.value;
+            this.setState({account});
+
+        }
     
     render() { 
       
@@ -19,7 +27,7 @@ class LoginForm extends Component {
             <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                     <label htmlFor="username">Username</label>
-                    <input autoFocus ref={this.username} id="username" type="text" className="form-control"/>
+                    <input value={this.state.account.username} onChange={this.handleChange} autoFocus ref={this.username} id="username" type="text" className="form-control"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
