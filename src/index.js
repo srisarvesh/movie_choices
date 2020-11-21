@@ -10,7 +10,7 @@ import {BrowserRouter} from 'react-router-dom'
 
 ReactDOM.render(
   <BrowserRouter>
-    <Movies />
+    <App />
   </BrowserRouter>,
   document.getElementById('root')
 );
