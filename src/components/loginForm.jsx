@@ -19,32 +19,22 @@ class LoginForm extends Component {
     validate=()=>{
             const options={abortEarly:false}
             const {error}=Joi.validate(this.state.account,this.schema,options);
+            console.log(error);
             if(!error) return null;
 
             const errors={}
             for(let item of error.details)
             {
-                errors[item.patj[0]]=item.message;
+                errors[item.path[0]]=item.message;
             }
             return errors;  
         }
         validateProprty=({name,value})=>{
-            if(name==='username')
-            {
-                if(value.trim()==='')
-                {
-                    return 'Username is required';
-                }
+           const obj={[name]:value};
+           const schema={[name]:this.state.schema[name]};
+           const {error}=joi.validate(obj,schema);
+           return error?error.details[0].message:null;
 
-            }
-            if(name==='password')
-            {
-                if(value.trim()==='')
-                {
-                    return 'password  is required';
-                }
-                
-            }
         }
        
       handleSubmit=e=>{
