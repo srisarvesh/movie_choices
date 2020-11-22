@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom'
 import React, { Component } from 'react'; 
 import { Button } from 'bootstrap';
+import Input from './common/input'
 
 
 class LoginForm extends Component {
@@ -26,14 +27,9 @@ class LoginForm extends Component {
             <div className="container">
             <h1>Login</h1>
             <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <input value={account.username} name="username" onChange={this.handleChange} autoFocus ref={this.username} id="username" type="text" className="form-control"/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input value={account.password} name="password" onChange={this.handleChange}  id="password" type="text" className="form-control"/>
-                </div>
+               <Input name={"username"} value={account.username} label="Username" onChange={this.handleChange}/>
+                <Input name={"password"} value={account.password} label="Password" onChange={this.handleChange}/>
+                
                 <button className="btn btn-primary">Login</button>
             </form>
             </div>
