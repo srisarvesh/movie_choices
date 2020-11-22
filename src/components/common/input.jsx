@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-const Input = ({name,label,value,onChange,error}) => {
+const Input = ({name,label,error,...rest}) => {
     return ( 
         <div className="form-group">
                     <label htmlFor={name}>{label}</label>
-                    <input value={value} 
+                    <input                                               
+                     {...rest}
                      name={name} 
-                     onChange={onChange}
+                    
                      id={name}
-                     type="text" 
+                     
                      className="form-control"
                      />
+                     {/*}
+                     // we use rest operator ...rest to retrive all other values from the props except name,label,error 
+                      // value={value} 
+                      // onChange={onChange}
+                      //type={type}
+                      //since in the above code the values are like this we use rest operator
+    */}
                 
-                {error && <div className="alert alert-danger">{error}</div>}
+                {error &&  <div className="alert alert-danger">{error}</div>}
                 </div>  
      );
 }
