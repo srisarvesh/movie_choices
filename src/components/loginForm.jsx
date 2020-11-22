@@ -25,19 +25,19 @@ class LoginForm extends Component {
             return Object.keys(errors).length===0?null:errors;
         }
         validateProprty=({name,value})=>{
-            if(name==="Username")
+            if(name==='username')
             {
                 if(value.trim()==='')
                 {
-                    return 'Username is required'
+                    return 'Username is required';
                 }
 
             }
-            if(name==="password")
+            if(name==='password')
             {
                 if(value.trim()==='')
                 {
-                    return 'password  is required'
+                    return 'password  is required';
                 }
                 
             }
@@ -65,7 +65,7 @@ class LoginForm extends Component {
             }
             const account={...this.state.account};
             account[input.name ]=input.value;
-            this.setState({account});
+            this.setState({account,errors});
 
         }
         
