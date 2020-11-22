@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Button } from 'bootstrap';
 import Input from './common/input'
 import { object } from 'prop-types';
-import Joi from "joi-browser"
+import Joi from 'joi-browser'
 
 
 class LoginForm extends Component {
@@ -12,25 +12,21 @@ class LoginForm extends Component {
         errors:{}
     };
     schema={
-        username:Joi.string().required(),
-        password:Joi.string().required()
+        username:Joi.string().required().label("Username"),
+        password:Joi.string().required().label("Password")
     }; 
    
     validate=()=>{
-            const result=Joi.validate(this.state.account,this.schema,{abortEarly:false});
-            console.log(result)
-            
-            const errors={};
-            const {account}=this.state;
-            if(account.username==='')
+            const options={abortEarly:false}
+            const {error}=Joi.validate(this.state.account,this.schema,options);
+            if(!error) return null;
+
+            const errors={}
+            for(let item of error.details)
             {
-                errors.username="Username is required";
+                errors[item.patj[0]]=item.message;
             }
-            if(account.password==='')
-            {
-                errors.password="Password is required";
-            }
-            return Object.keys(errors).length===0?null:errors;
+            return errors;  
         }
         validateProprty=({name,value})=>{
             if(name==='username')
