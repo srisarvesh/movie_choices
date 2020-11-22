@@ -17,7 +17,7 @@ const Input = ({name,label,error,...rest}) => {
                       // onChange={onChange}
                       //type={type}
                       //since in the above code the values are like this we use rest operator
-    */}
+                     */}
                 
                 {error &&  <div className="alert alert-danger">{error}</div>}
                 </div>  

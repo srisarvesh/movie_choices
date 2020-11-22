@@ -8,6 +8,8 @@ import NotFound from "./components/not-Found";
 import NavBar from "./components/navBar";
 import "./App.css";
 import LoginForm from './components/loginForm';
+import register from "./registerServiceWorker";
+import RegisterForm  from "./components/registerForm"
 
 class App extends Component {
   render() {
@@ -15,7 +17,9 @@ class App extends Component {
       <React.Fragment>
         <NavBar />
         <main className="container">
+
           <Switch>
+            <Route path="/register" component={RegisterForm }/>
             <Route path="/login" component={LoginForm}/>
             <Route path="/movies/:id" component={MovieForm} />
             <Route path="/movies" component={Movies} />
