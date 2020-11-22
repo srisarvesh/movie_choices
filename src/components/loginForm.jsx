@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Button } from 'bootstrap';
 import Input from './common/input'
 import { object } from 'prop-types';
+import Joi from "joi-browser"
 
 
 class LoginForm extends Component {
@@ -10,8 +11,15 @@ class LoginForm extends Component {
         account:{username:"",password:""},
         errors:{}
     };
+    schema={
+        username:Joi.string().required(),
+        password:Joi.string().required()
+    }; 
    
     validate=()=>{
+            const result=Joi.validate(this.state.account,this.schema,{abortEarly:false});
+            console.log(result)
+            
             const errors={};
             const {account}=this.state;
             if(account.username==='')
@@ -53,6 +61,7 @@ class LoginForm extends Component {
             }
            console.log("submitted")
         };
+
         handleChange=({currentTarget:input})=>{
             const errors={...this.state.errors}
             const errorMessage=this.validateProprty(input);
@@ -66,7 +75,6 @@ class LoginForm extends Component {
             const account={...this.state.account};
             account[input.name ]=input.value;
             this.setState({account,errors});
-
         }
         
         
