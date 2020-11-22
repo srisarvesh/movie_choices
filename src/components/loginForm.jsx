@@ -32,7 +32,7 @@ class LoginForm extends Component {
         validateProprty=({name,value})=>{
            const obj={[name]:value};
            const schema={[name]:this.state.schema[name]};
-           const {error}=joi.validate(obj,schema);
+           const {error}=Joi.validate(obj,schema);
            return error?error.details[0].message:null;
 
         }
@@ -75,7 +75,9 @@ class LoginForm extends Component {
                <Input name={"username"} value={account.username} error={errors.username} label="Username" onChange={this.handleChange}/>
                 <Input name={"password"} value={account.password} error={errors.password} label="Password" onChange={this.handleChange}/>
                 
-                <button className="btn btn-primary">Login</button>
+                <button 
+                disabled={this.validate()} 
+                className="btn btn-primary">Login</button>
             </form>
             </div>
           );
