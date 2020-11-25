@@ -1,5 +1,5 @@
 import React,{Component} from "react";
-import { genres, getGenres } from './../services/fakeGenreService';
+import { genres, getGenres } from './../services/genreService';
 import  Joi  from 'joi-browser';
 import { saveMovie,getMovie } from "../services/fakeMovieService";
 import Form from "./common/form"
