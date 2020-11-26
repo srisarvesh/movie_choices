@@ -22,7 +22,7 @@ class LoginForm extends Form {
     // Call the server
     try{
     const{username,password}=this.state.data;
-    await auth.login(data.username,data.password);
+    await auth.login(username,password);
     window.location="/"
     }
     catch(ex){

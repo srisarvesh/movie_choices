@@ -2,7 +2,7 @@ import http from "./httpService";
 import { apiUrl } from "../config.json";
 import jwtDecode from 'jwt-decode';
 import Logout from './../components/logout';
-import { getCurrentUser } from './authService';
+
 
 const apiEndpoint = apiUrl + "/auth";
 const tokenKey="token";
@@ -30,7 +30,10 @@ export function loginWithJwt(jwt)
 {
   localStorage.setItem(tokenKey,jwt); 
 }
+export function getJWT(){
+    localStorage.getItem(tokenKey);
+}
 export default{
     login,
-    logout,getCurrentUser,loginWithJwt
+    logout,getCurrentUser,loginWithJwt,getJWT
 }
