@@ -6,6 +6,7 @@ import Logout from './../components/logout';
 
 const apiEndpoint = apiUrl + "/auth";
 const tokenKey="token";
+http.setJwt=(getJwt()); 
 
 export async function login(email,password){
     const {data:jwt}=await http.post(apiEndpoint,{email,password});
@@ -30,10 +31,10 @@ export function loginWithJwt(jwt)
 {
   localStorage.setItem(tokenKey,jwt); 
 }
-export function getJWT(){
+export function getJwt(){
     localStorage.getItem(tokenKey);
 }
 export default{
     login,
-    logout,getCurrentUser,loginWithJwt,getJWT
+    logout,getCurrentUser,loginWithJwt,getJwt
 }
