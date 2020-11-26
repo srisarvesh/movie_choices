@@ -22,7 +22,9 @@ class LoginForm extends Form {
     // Call the server
     try{
     const{username,password}=this.state.data;
-    await login.login(username,password);
+    const{data:jwt}=await login.login(username,password);
+    localStorage.setItem("token",jwt);
+    this.props.history.push("/"); 
     }
     catch(ex){
       if(ex.response&&ex.response.status===400)
@@ -31,7 +33,6 @@ class LoginForm extends Form {
         errors.username=ex.response.data;
         this.setState({errors});
       }
-
     }
   };
 
