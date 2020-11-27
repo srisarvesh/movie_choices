@@ -1,11 +1,22 @@
 body {
   margin: 0;
   padding: 0 0 0 0;
+  padding-bottom: 10000px;
+  
+  
+  margin-bottom: 10000px;
   font-family: sans-serif;
+  background-image: url("../src/movie\ \(2\).jpg");
+}
+
+.container {
+  height: 570px;
+  width: 400%;
 }
 
 .navbar {
   margin-bottom: 30px;
+  background-color: green;
 }
 
 .clickable {
