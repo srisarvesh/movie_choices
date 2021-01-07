@@ -1,7 +1,9 @@
-# movie_choices
+Project:Movie listing application
+Duration:1 month
+Technologies Used:Html,css, javascript, bootstrap,React js,Node js, Express js,Mongo db
 
-*This project is build using react where a user can create an account on the vidly application.
-*Each user can login into the application after registering and they can add different movies that they want with all the movie details.And also they can give ratings and likes to different movies they have added
-*And all the user details are stored in the mongodb database.
-*And the whole project is hosted in heroku cloud hosting platform
-
+*Created a Movie Listing application which displays the list of movies and the genres of movies a user like .And they can delete and add new movies that they like into the application.
+*Every user can Register their mail id into the application and can access the movies that they like.
+*Created the front-end UI with react js.And for creating backend I used Node js and Express js
+*And for storing the user credentials and movie details I used Mongo db.
+*And both my front-end and Back-end is hosted in Heroku.
